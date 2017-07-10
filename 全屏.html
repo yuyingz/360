@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        .section {
+            overflow: hidden;
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+        .info>div {
+            flex: 1;
+        }
+        .section .logo {
+            width: 251px;
+            height: 186px;
+            margin: 80px auto;
+            background: url("images/logo.png");
+        }
+        .info>.text {
+            width: 100%;
+            text-align: center;
+        }
+        .section.current .info>.text img{
+            margin:0 5px;
+            opacity: 1;
+            transition: margin 1s,opactiy 1s;
+        }
+        .info>.text img {
+            margin:0 40px;
+            opacity: 0.3;
+        }
+        .section .xx {
+            height: 49px;
+            width: 772px;
+            margin:40px auto;
+            background: url("images/info_1.png");
+        }
+        .two {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .shield {
+            width: 440px;
+            font-size: 0;
+        }
+        .second .rig {
+            width: 635px;
+            height: 309px;
+            background: url("images/info_2.png");
+        }
+        .second .shield > img:nth-of-type(1){
+            transform: translate(100px,100px) rotate(30deg);
+        }
+        .second .shield > img:nth-of-type(2){
+            transform: translate(-100px,-100px) rotate(-30deg);
+        }
+        .second .shield > img:nth-of-type(3){
+            transform: translate(200px,200px) rotate(60deg);
+        }
+        .second .shield > img:nth-of-type(4){
+            transform: translate(-200px,-200px) rotate(-60deg);
+        }
+        .second .shield > img:nth-of-type(5){
+            transform: translate(150px,150px) rotate(90deg);
+        }
+        .second .shield > img:nth-of-type(6){
+            transform: translate(50px,150px) rotate(-90deg);
+        }
+        .second .shield > img:nth-of-type(7){
+            transform: translate(-150px,-150px) rotate(60deg);
+        }
+        .second .shield > img:nth-of-type(8){
+            transform: translate(10px,-250px) rotate(-90deg);
+        }
+        .second .shield > img:nth-of-type(9){
+            transform: translate(-250px,10px) rotate(45deg);
+        }
+        .section.current .two img {
+            transform: none;
+            transition: transform 1s;
+        }
+        .third {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        .third>div {
+            position: absolute;
+            top: 50%;
+        }
+        .third .lef {
+            width: 613px;
+            height: 278px;
+            background: url("images/info_3.png");
+            left: 50%;
+            transform: translate(-103%,-50%);
+        }
+        .third .rig {
+            width: 453px;
+            height: 449px;
+            background: url("images/circle.png");
+            right: 50%;
+            transform: translate(120%,-50%);
+        }
+        .rig>.rock {
+            width: 203px;
+            height: 204px;
+            position: absolute;
+            background: url("images/rocket.png");
+            top: 120px;
+            left: 105px;
+        }
+        .third .rock {
+            transform: translate(-600px,600px);
+        }
+        .section.current .rock {
+            transform: translate(0,0);
+            transition: transform 1s;
+        }
+        .four {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        .four>div {
+            position: absolute;
+            top: 50%;
+        }
+        .four .lef {
+            width: 529px;
+            height: 438px;
+            left: 50%;
+            transform: translate(-115%,-50%);
+            overflow: hidden;
+        }
+        .four .lef>.hear {
+            width: 529px;
+            height: 66px;
+            background: url("images/search.png");
+            transform: translate(-100%,0);
+        }
+        .section.current .lef>.hear {
+            transform: translate(0,0);
+            transition: transform 1s;
+        }
+        .four .lef>.result {
+            width: 529px;
+            height: 372px;
+            background: url("images/result.png");
+            margin-top: -14px;
+            height: 0%;
+        }
+        .section.current .result {
+            height: 372px;
+            transition: height 1s 2s;
+        }
+        .four .lef>.txt {
+            position: absolute;
+            top:22px;
+            left: 18px;
+            width: 99px;
+            height: 22px;
+            background: url("images/key.png");
+            width: 0;
+        }
+        .section.current .txt {
+            width: 99px;
+            transition: width 1s 1s steps(5);
+        }
+        .four .rig {
+            right: 50%;
+            transform: translate(100%,-50%);
+            width: 612px;
+            height: 299px;
+            background: url("images/info_4.png");
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.fullPage.min.js"></script>
+</head>
+<body>
+<div id="dowebok">
+    <!--每一个section就是一屏-->
+    <div class="section first">
+        <div class="info">
+            <div class="logo"></div>
+            <div class="text">
+                <img src="images/text_1.png" alt=""/>
+                <img src="images/text_2.png" alt=""/>
+                <img src="images/text_3.png" alt=""/>
+                <img src="images/text_4.png" alt=""/>
+                <img src="images/text_5.png" alt=""/>
+                <img src="images/text_6.png" alt=""/>
+                <img src="images/text_7.png" alt=""/>
+                <img src="images/text_8.png" alt=""/>
+            </div>
+            <div class="xx"></div>
+        </div>
+    </div>
+    <div class="section second">
+        <div class="two">
+            <div class="shield">
+                <img src="images/shield_1.png" alt="">
+                <img src="images/shield_2.png" alt="">
+                <img src="images/shield_3.png" alt="">
+                <img src="images/shield_4.png" alt="">
+                <img src="images/shield_5.png" alt="">
+                <img src="images/shield_6.png" alt="">
+                <img src="images/shield_7.png" alt="">
+                <img src="images/shield_8.png" alt="">
+                <img src="images/shield_9.png" alt="">
+            </div>
+            <div class="rig"></div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="third">
+            <div class="lef"></div>
+            <div class="rig">
+                <div class="rock"></div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="four">
+            <div class="lef">
+                <div class="hear"></div>
+                <div class="result"></div>
+                <div class="txt"></div>
+            </div>
+            <div class="rig"></div>
+        </div>
+    </div>
+    <div class="section">
+        <h3>第5屏</h3>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#dowebok").fullpage({
+            sectionsColor:["#0099cc",'#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+            afterLoad:function(anchorLink,index){
+                $(".section").removeClass("current");
+                setTimeout(function(){
+                    $(".section").eq([index-1]).addClass("current");
+                },300);
+            }
+        });
+    });
+</script>
+</body>
+</html>

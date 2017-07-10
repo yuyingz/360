@@ -1,0 +1,192 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.section{
+    overflow: hidden;
+}
+
+/*第一屏结构*/
+.first{
+    overflow: hidden;
+}
+.first .logo{
+    width: 251px;
+    height: 186px;
+    display: block;
+    background: url("../images/logo.png");
+    margin:100px auto 0;
+}
+.first .text{
+    text-align: center;
+    margin-top:50px;
+}
+.first .text > img{
+    margin-left:80px;
+    opacity:0.2;
+    transition: margin-left 1s,opacity 1s;
+}
+.first .text > img:nth-of-type(1){
+    margin-left:0;
+}
+.first .info{
+    width: 772px;
+    height: 49px;
+    background: url("../images/info_1.png");
+    margin:20px auto;
+}
+/*第一屏过渡*/
+.first.current .text > img{
+    margin-left: 10px;
+    opacity:1;
+}
+
+/*第二屏结构*/
+.second > div{
+    /*伸缩布局只会影响它的直接子元素*/
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+.second .shield{
+    width: 440px;
+    /*消除文本基线*/
+    font-size: 0;
+}
+.second .info{
+    width: 635px;
+    height: 309px;
+    background: url("../images/info_2.png");
+}
+.second .shield > img{
+    transition: transform 1s;
+}
+.second .shield > img:nth-of-type(1){
+    transform: translate(100px,100px) rotate(30deg);
+}
+.second .shield > img:nth-of-type(2){
+    transform: translate(-100px,-100px) rotate(-30deg);
+}
+.second .shield > img:nth-of-type(3){
+    transform: translate(200px,200px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(4){
+    transform: translate(-200px,-200px) rotate(-60deg);
+}
+.second .shield > img:nth-of-type(5){
+    transform: translate(150px,150px) rotate(90deg);
+}
+.second .shield > img:nth-of-type(6){
+    transform: translate(50px,150px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(7){
+    transform: translate(-150px,-150px) rotate(60deg);
+}
+.second .shield > img:nth-of-type(8){
+    transform: translate(10px,-250px) rotate(-90deg);
+}
+.second .shield > img:nth-of-type(9){
+    transform: translate(-250px,10px) rotate(45deg);
+}
+/*第二屏过渡效果*/
+.second.current .shield > img{
+    transform: none;
+}
+
+/*第三屏结构*/
+.third{
+    position: relative;
+}
+
+.third .info{
+    width: 631px;
+    height: 278px;
+    background: url("../images/info_3.png");
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-100%,-50%);
+}
+.third .circle{
+    width: 453px;
+    height: 449px;
+    background: url("../images/circle.png");
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(120%,-50%);
+}
+.third .circle > .rocket{
+    width: 203px;
+    height: 204px;
+    background: url("../images/rocket.png");
+    position: absolute;
+    left: -600px;
+    top:700px;
+    transition: left 1s,top 1s;
+}
+/*第三屏过渡*/
+.third.current  .circle > .rocket{
+    left: 125px;
+    top:125px;
+}
+
+/*第四屏结构*/
+.fourth{
+    position: relative;
+}
+.fourth .searchBox{
+    width: 529px;
+    height: 438px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-120%,-50%);
+    overflow: hidden;
+}
+.fourth .searchBox .searchInput{
+    width: 529px;
+    height: 66px;
+    background: url("../images/search.png");
+    /*初始的时候，将整个文本框偏移到搜索块的外面*/
+    transform: translateX(-100%);
+    transition:transform 1s ;
+}
+.fourth .searchBox .searchText{
+    /*一开始的时候，搜索文本的宽度应该为0，但是糨并不会压缩背景图片的显示，因为背景图片默认是从左上角放置*/
+    width: 0px;
+    height: 22px;
+    background: url("../images/key.png");
+    position: absolute;
+    left: 18px;
+    top:22px;
+    transition:width 1s 1s steps(5);
+}
+.fourth .searchBox .searchResult{
+    width: 529px;
+    height: 0px;
+    background: url("../images/result.png");
+    margin-top:-18px;
+    transition:height 1s 2s;
+}
+.fourth .info{
+    width: 612px;
+    height: 299px;
+    background: url("../images/info_4.png");
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform:translate(100%,-50%)
+}
+
+/*第四屏过渡*/
+.fourth.current .searchBox .searchInput{
+    transform:none
+}
+.fourth.current .searchBox .searchText{
+    width: 100px;
+}
+.fourth.current .searchBox .searchResult{
+    height: 372px;
+}
